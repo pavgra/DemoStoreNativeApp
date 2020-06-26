@@ -1,10 +1,9 @@
 
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import Navigator from './components/Navigator';
 import Catalog from './components/Catalog';
 import ShoppingCart from './components/ShoppingCart';
 
@@ -21,32 +20,12 @@ const tabs = [
   },
 ];
 
-const Tab = createBottomTabNavigator();
-
 const App = () => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName = tabs.find(t => t.name === route.name)?.iconName({ focused });
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-        })}
-        tabBarOptions={{
-          activeTintColor: 'tomato',
-          inactiveTintColor: 'gray',
-        }}
-      >
-        {tabs.map(({ name, component }, index) => (
-          <Tab.Screen key={index} name={name} component={component} />
-        ))}
-      </Tab.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <Navigator tabs={tabs} />
+    </Provider>
   );
 };
-
-const styles = StyleSheet.create({
-});
 
 export default App;
