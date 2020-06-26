@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { RootState, actions } from '../../store';
-import Catalog from './presenter';
+import Cart from './presenter';
 
 const mapStateToProps = (state: RootState) => ({
     items: state.catalog.items,
@@ -8,7 +8,7 @@ const mapStateToProps = (state: RootState) => ({
 });
 
 const mapDispatchToProps = {
-    addToCart: actions.cart.addToCart,
+    clear: actions.cart.clear,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Catalog);
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

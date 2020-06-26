@@ -1,16 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface State {
-    items: { name: string, price: number }[]
+interface SliceState {
+    items: CatalogItem[]
 }
 
-export default createSlice<State, any, string>({
+const initialState: SliceState = {
+    items: [
+        { name: 'Apples', price: 5 },
+        { name: 'Oranges', price: 7 },
+        { name: 'Bananas', price: 2 },
+    ]
+};
+
+export default createSlice({
     name: 'catalog',
-    initialState: {
-        items: [
-            { name: 'Junior Developer', price: 60 },
-            { name: 'Middle Developer', price: 100 },
-        ]
-    },
+    initialState,
     reducers: {}
 });

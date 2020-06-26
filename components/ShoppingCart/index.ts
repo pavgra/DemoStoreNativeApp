@@ -1,3 +1,3 @@
-import presenter from './presenter';
+import container from './container';
 
-export default presenter;
+export default container;
