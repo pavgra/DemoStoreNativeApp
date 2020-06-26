@@ -6,6 +6,7 @@ import { store } from './store';
 import Navigator from './components/Navigator';
 import Catalog from './components/Catalog';
 import ShoppingCart from './components/ShoppingCart';
+import Pay from './components/Pay';
 
 const tabs = [
   {
