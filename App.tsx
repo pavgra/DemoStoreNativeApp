@@ -12,12 +12,12 @@ const tabs = [
   {
     name: 'Catalog',
     component: Catalog,
-    iconName: ({ focused }: { focused: Boolean }) => focused ? 'ios-list-box' : 'ios-list',
+    iconName: ({ focused }: { focused: Boolean }) => focused ? 'list' : 'list',
   },
   {
     name: 'Cart',
     component: ShoppingCart,
-    iconName: ({ focused }: { focused: Boolean }) => 'ios-cart',
+    iconName: ({ focused }: { focused: Boolean }) => 'cart',
   },
 ];
 

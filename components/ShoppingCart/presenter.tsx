@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     }
 });
 
-function CartDetails({ itemsInCart, clear, startPayment }: { itemsInCart: CartItem, clear: Function, startPayment: Function }) {
+function CartDetails({ itemsInCart, clear, startPayment }: { itemsInCart: string[], clear: Function, startPayment: Function }) {
     return (
         <View style={styles.container}>
             <View style={styles.titleContainer}>
@@ -35,7 +35,9 @@ function CartDetails({ itemsInCart, clear, startPayment }: { itemsInCart: CartIt
                         <Card containerStyle={{padding: 0, margin: 0}}>
                             {
                                 itemsInCart.map((item, key) => (
-                                    <ListItem key={key} title={item} />
+                                    <ListItem key={key}>
+                                        <Text>{item}</Text>
+                                    </ListItem>
                                 ))
                             }
                         </Card>
@@ -54,7 +56,7 @@ function CartDetails({ itemsInCart, clear, startPayment }: { itemsInCart: CartIt
 function Pay({ cancelPayment }: { cancelPayment: Function }) {
     const styles = StyleSheet.create({
         container: {
-            marginTop: 60,
+            marginTop: 20,
             marginLeft: 15,
             marginRight: 15,
         },
@@ -65,8 +67,8 @@ function Pay({ cancelPayment }: { cancelPayment: Function }) {
         marginTop: 10,
         },
         webview: {
-        marginTop: 10,
-        height: 600,
+        marginTop: 5,
+        height: 510,
         }
     });
 
@@ -79,7 +81,7 @@ function Pay({ cancelPayment }: { cancelPayment: Function }) {
             </View>
             </View>
             <View style={styles.webview}>
-                <WebView source={{ uri: 'https://staging.pushpayments.db.com/flow/eyJwYXlsb2FkIjp7ImlwaSI6IjRFODMzMTY1QjBDNUQxMTY2NTdEQkM1REU0MjIzNDgwIiwiZWR0IjoiMjU5MC0xMS0xOFQxOTo1OTozMy41OTdaIiwidGFzIjoic3RnIn0sInNpZ25hdHVyZSI6IkxYOEJTbkc4WFZLZDNXS3hFRkJMSFdvOHFMcUp1Z3EwTFlYNGNVMnNpT28xUXh3Zk16TzZUM3VnVmVtNWtVd3IvWENzWlRoYXpiNzdzMzE4REdDdWNyb0p5dC90Wit6b2w2QUZBVVFvUmJuTVIxblArTEFBd2VSV0pERS8yVDhoRENPa0I2OUdtM0lVNE9xalY3ZDhGNEttdnBXQWNTRGVVUEV3K0tVenp5TUhsTXlxQXN6Y0tJd0ZkUm51V3ZLTGtsRG9SRG9NTUJ3V2xIU29YNllpcEovN0l1ZTQzNU80WFY2M2hrUlVjV2VoRDd2UXlWNkhnZjhCZ3luQUNtQWpyb0VYNWhZRitZczNrZUR5T2FlWmpzd2lERWVPNnFQWTNFYTJlZU1TaDJValhZc0d6V2MwVDJXSTR1cWhqaVRKYnR6dmxQenVCVVNUR2hGTmhvMzh0Zz09Iiwic2lnbmF0dXJlUHViS2V5SWQiOiIyIn0=' }} />
+                <WebView source={{ uri: 'https://staging.pushpayments.db.com/pay/eyJwYXlsb2FkIjp7InYiOjEsImlwaSI6IjYwNjk5RjhCNjVDQkU1MzQyMURCNTg4RTc1RDE0Nzc4IiwiZWR0IjoiMjAyMS0wOS0yNlQxNDo0NDo1OS41MzFaIiwidGFzIjoic3RnIiwiY2kiOiJQUEUifSwic2lnbmF0dXJlIjoiVEY4Y2w0UmdjQk9VTHlrMHEwUFgrWlkrTUpjNWVOaHhHVk1GbWdkeGxKNllUbUdwQUxZUjFhMy9DbzE3b1hTVUphRU9zZ2FQajdVY2NtZUxWWVhMNXFNd1dPKytkalB6TE5EVmcxS2pCOHZTcGwyUTVVMjdLZHFCYllsbnpJMU5WTHEvc2IxZHN3cURJaDRpYUFjbS9zcEVBdGZ2SDR0TGF6ZzNHMDZTUlRWOFZDQm02YU9KTDdiWkhybUcycGc1V0RSamdOeXc4cjRZMVppRG01S3o5clBSYmN5OVZXZFJzci9hNjhoSHVtQ01EL2VNeEEzZ24xOWZZcndNUE1QaXBNN1ovdHQzQldoUzlkbUZXTVVrOU9OUS91MXJtdUJZZGgzdUVjSGZDekk4dHFuQThRWHFtUDNzZ3k1VjBsSTAvZXU1dk1zdmZNcytsaU1XVjRqdGJ3PT0iLCJzaWduYXR1cmVQdWJLZXlJZCI6IjMifQ==/' }} />
             </View>
         </>
     )

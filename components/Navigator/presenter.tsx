@@ -8,7 +8,7 @@ const Tab = createBottomTabNavigator();
 interface TabDetails {
     name: string,
     component: React.ComponentType,
-    iconName: ({ focused }: { focused: Boolean }) => String,
+    iconName: ({ focused }: { focused: Boolean }) => string,
 }
 
 export default function Navigator({ tabs }: { tabs: TabDetails[] }) {
@@ -18,13 +18,9 @@ export default function Navigator({ tabs }: { tabs: TabDetails[] }) {
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
               let iconName = tabs.find(t => t.name === route.name)?.iconName({ focused });
-              return <Ionicons name={iconName} size={size} color={color} />;
+              return iconName ? <Ionicons name={iconName} size={size} color={color} /> : null;
             },
           })}
-          tabBarOptions={{
-            activeTintColor: 'tomato',
-            inactiveTintColor: 'gray',
-          }}
         >
           {tabs.map(({ name, component }, index) => (
             <Tab.Screen key={index} name={name} component={component} />
